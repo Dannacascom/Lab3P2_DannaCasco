@@ -80,8 +80,8 @@ public class concesionaria {
     @Override
     public String toString() {
         return "--concesionaria--"
-                +"\nnombre: "+nombre+
-                "\nid: " + id + "\ndireccion: " + direccion + "\nsaldo: " + saldo;
+                +"\nNombre: "+nombre+
+                "\nID: " + id + "\nDireccion: " + direccion + "\nSaldo: " + saldo;
     }
     
 }

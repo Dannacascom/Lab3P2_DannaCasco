@@ -28,7 +28,7 @@ class clientes   {
 
     @Override
     public String toString() {
-        return "clientes{" + "id=" + id + ", nombre=" + nombre + ", v=" + v + ", saldo=" + saldo + '}';
+        return "--Cliente--" + "\nid: " + id + "\nnombre: " + nombre +"\nsaldo: " + saldo ;
     }
     
 }
