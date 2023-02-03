@@ -15,10 +15,10 @@ class bus extends vehiculos {
     public bus() {
     }
 
-    public bus(int pasajeros, String tipo, String color, String marca, String modelo, int año, double precio, int llantas) {
+    public bus(int pasajeros, String color, String marca, String modelo, int año, double precio, int llantas) {
         super(color, marca, modelo, año, precio, llantas);
         this.pasajeros = pasajeros;
-        this.tipo = tipo;
+        
     }
     
  
