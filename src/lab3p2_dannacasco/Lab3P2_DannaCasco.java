@@ -16,7 +16,7 @@ public class Lab3P2_DannaCasco {
       static ArrayList<clientes> clients = new ArrayList();
       static ArrayList<vehiculos> v = new ArrayList();
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
     Scanner entrada = new Scanner(System.in);
         int opcion = 0; 
         int cliente = 0;
@@ -64,7 +64,7 @@ public class Lab3P2_DannaCasco {
                     System.out.println("No hay concesionarias en existencia");
                 }else{
                 System.out.println("--Eliminar concesionaria-- ");
-                for (concesionaria t : c) {     
+                for (concesionaria t : c) { 
               System.out.println(c.indexOf(t)+"-"+t+"\n");
                }
                 System.out.println("");
@@ -88,7 +88,7 @@ public class Lab3P2_DannaCasco {
                 clients.add(newCliente());
             }else if(op==2){
              for (clientes t : clients) {     
-              System.out.println(c.indexOf(t)+". "+t+"\n");
+              System.out.println(clients.indexOf(t)+". "+t+"\n");
                }
              
             System.out.println("Ingrese cliente a eliminar: ");
@@ -110,10 +110,10 @@ public class Lab3P2_DannaCasco {
             if(op==1){
                 v.add(newVehiculo());
             }else if(op==2){
-                
+                modificarV();
             }else if(op==3){
                 for (vehiculos t : v) {     
-              System.out.println(c.indexOf(t)+". "+t+"\n");
+              System.out.println(v.indexOf(t)+". "+t+"\n");
                }
                 
                 System.out.println("Ingrese posicion a eliminar: ");
@@ -124,6 +124,10 @@ public class Lab3P2_DannaCasco {
                 System.out.println("OPCION INVALIDA");
             }
             
+        }else if (opcion==4){
+            
+        }else{
+            System.out.println("OPCION INVALIDA");
         }
         
         
@@ -262,5 +266,188 @@ public class Lab3P2_DannaCasco {
           throw new Exception("INVALIDO");
     }
     
+    public static void modificarV(){
+     Scanner entrada = new Scanner(System.in);
+        System.out.println("1.Carro");
+                System.out.println("2.Camion");
+                System.out.println("3.Bus");
+                System.out.println("4.Motocicleta");
+                System.out.println("5.Bicicleta");
+                System.out.println(" Que desea modificar: ");
+                int op2 = entrada.nextInt();
+        switch(op2){
+            case 1:
+                for (vehiculos t : v) {
+                if (t instanceof carro) {
+                System.out.println(v.indexOf(t)+". "+t+"\n");
+            }
+        }
+        System.out.println("Ingrese posicion a modificar: ");
+        int posm = entrada.nextInt();
+        System.out.println("1.Descripcion del Motor");
+        System.out.println("2.Velocidad maxima");
+        System.out.println("3.Numero de puertas");
+         System.out.println("Ingrese una opcion: ");
+        int op3 = entrada.nextInt();
+        switch (op3) {
+            
+            case 1: 
+                System.out.println("Ingrese nueva descripcion del motor: ");
+                String dmotor = entrada.nextLine();
+                ((carro) v.get(posm)).setMotor(dmotor);
+                break;
+            case 2 :
+                System.out.println("Ingrese nueva velocidad: ");
+                entrada = new Scanner(System.in);
+                double velo = entrada.nextDouble();
+                ((carro) v.get(posm)).setVelocidad(velo);
+                break;
+            case 3 :
+                System.out.println("Ingrese nuevo numero de puertas: ");
+                entrada = new Scanner(System.in);
+                int nump = entrada.nextInt();
+                ((carro) v.get(posm)).setPuertas(nump);
+                break;
+        }
+        
+        break;
+          case 2:
+              for (vehiculos t : v) {
+                if (t instanceof camion) {
+                System.out.println(v.indexOf(t)+". "+t+"\n");
+            }
+        }
+        System.out.println("Ingrese posicion a modificar: ");
+        int posm1 = entrada.nextInt();
+        
+        System.out.println("1.Volumen");
+              System.out.println("2.Altura");
+              System.out.println("3.retroexcavadora");
+              System.out.println("Ingrese opcion: ");
+              entrada = new Scanner(System.in);
+              int op4 = entrada.nextInt();
+
+        switch (op4) {
+            case 1 :
+                System.out.println("Ingrese nuevo volumen : ");
+                entrada = new Scanner(System.in);
+                double vol = entrada.nextDouble();
+                ((camion) v.get(posm1)).setVolumen(vol);
+            break;
+            case 2 :
+                System.out.println("Ingrese nueva altura: ");
+                entrada = new Scanner(System.in);
+                double alt = entrada.nextDouble();
+                ((camion) v.get(posm1)).setAltura(alt);
+
+            break;
+            
+            case 3 :
+                System.out.println("Tiene retroexcavadora ? ");
+                String extra = entrada.nextLine();
+                
+                switch(extra){
+                    case "si":
+                        ((camion) v.get(posm1)).setExcavadora(true);
+                        break;
+                    case "no":
+                        ((camion) v.get(posm1)).setExcavadora(false);
+                    break;
+                
+            }
+        }
+                break;
+            case 4:
+                for (vehiculos t : v) {
+                if (t instanceof moticicleta) {
+                System.out.println(v.indexOf(t)+". "+t+"\n");
+            }
+        }
+                System.out.println("Ingrese posicion a modificar: ");
+              int posm2 = entrada.nextInt();
+              
+          System.out.println( "1.Desplazamiento de Motor  ");
+                 System.out.println("2.electricidad");
+                entrada = new Scanner(System.in);
+                int op5 = entrada.nextInt();
+
+                
+                switch (op5){
+                    case 1:
+                        System.out.println("Ingrese nuevo desplazamiento: ");
+                        entrada = new Scanner(System.in);
+                        String dmotor = entrada.nextLine();
+                        ((moticicleta) v.get(posm2)).setDesmotor(dmotor);
+
+                        break;
+                    case 2: 
+            System.out.println("Es electrica?" );
+            entrada= new Scanner(System.in);
+            String electr = entrada.nextLine();
+            switch(electr){
+               case "si":
+                        ((moticicleta) v.get(posm2)).setElectrica(true);
+                        break;
+                    case "no":
+                        ((moticicleta) v.get(posm2)).setElectrica(false);
+                        break;
+     
+            }
+            break;
+                }
+            case 5:
+          
+     
+            for (vehiculos t : v) {
+                if (t instanceof bicicleta) {
+                System.out.println(v.indexOf(t)+". "+t+"\n");
+            }
+        }
+        System.out.println("Ingrese posicion a modificar: ");
+        int posm3 = entrada.nextInt();
+        
+        System.out.println("1. descripcion ");
+                System.out.println(" 2.Tipo");
+                System.out.println(" 3.Radio de la rueda");
+                entrada = new Scanner(System.in);
+        int op6 = entrada.nextInt();
+        switch (op6) {
+            case 1 :
+                System.out.println("Ingrese nueva descripcion");
+                entrada = new Scanner(System.in);
+                String des = entrada.nextLine();
+                ((bicicleta) v.get(posm3)).setDescripcion(des);
+            break;
+            case 2 :
+                System.out.println("Ingrese tipo");
+                entrada = new Scanner(System.in);
+                String tip = entrada.nextLine();
+                ((bicicleta) v.get(posm3)).setTipo(tip);
+            break;
+            case 3 :
+                System.out.println("Ingrese radio de la Rueda");
+                entrada = new Scanner(System.in);
+                double rr = entrada.nextDouble();
+                ((bicicleta) v.get(posm3)).setRadiorueda(rr);
+            break;
+        
+    }
+                break;
+                
+            default:
+                System.out.println("OPCION INVALIDA");
+                break;
+                
+        
+
     
-}
+             
+        }
+    }
+            
+        
+        }
+    
+    
+    
+
